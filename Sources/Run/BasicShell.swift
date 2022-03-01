@@ -23,3 +23,37 @@ func safeShell(_ command: String) throws -> String {
 
     return output
 }
+
+func maker() throws -> String {
+    let task = Process()
+    let pipe = Pipe()
+
+    task.standardOutput = pipe
+    task.standardError = pipe
+    task.arguments = ["-C", "./yt-dlp"]
+    task.executableURL = URL(fileURLWithPath: "/usr/bin/make") //<--updated
+
+    try task.run() //<--updated
+
+    let data = pipe.fileHandleForReading.readDataToEndOfFile()
+    let output = String(data: data, encoding: .utf8)!
+
+    return output
+}
+
+func downloadYoutubeFile() throws -> String {
+    let task = Process()
+    let pipe = Pipe()
+
+    task.standardOutput = pipe
+    task.standardError = pipe
+    task.arguments = ["-C", "WpKld15QPRk"]
+    task.executableURL = URL(fileURLWithPath: "./yt-dlp/yt-dlp") //<--updated
+
+    try task.run() //<--updated
+
+    let data = pipe.fileHandleForReading.readDataToEndOfFile()
+    let output = String(data: data, encoding: .utf8)!
+
+    return output
+}

@@ -10,8 +10,6 @@ let package = Package(
         // 💧 A server-side Swift web framework.
         .package(url: "https://github.com/vapor/vapor.git", from: "4.0.0"),
         .package(url: "https://github.com/vapor/leaf.git", from: "4.0.0"),
-        // 🐍 Python
-        .package(url: "https://github.com/pvieito/PythonKit.git", from: "0.2.1")
         ],
     targets: [
         .target(
@@ -19,7 +17,6 @@ let package = Package(
             dependencies: [
                 .product(name: "Leaf", package: "leaf"),
                 .product(name: "Vapor", package: "vapor"),
-                .product(name: "PythonKit", package: "pythonKit")
                 ],
             swiftSettings: [
                 // Enable better optimizations when building in Release configuration. Despite the use of

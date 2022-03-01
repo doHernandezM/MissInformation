@@ -2,14 +2,14 @@ import App
 import Vapor
 
 
-let configuration = Configuration()
+let configuration = Config()
 //MARK: Setup Content
 //clones yt-dl git, makes it
 firstInit()
 
 
 
-//MARK: Star Vapor
+//MARK: Start Vapor
 var env = try Environment.detect()
 try LoggingSystem.bootstrap(from: &env)
 let app = Application(env)
