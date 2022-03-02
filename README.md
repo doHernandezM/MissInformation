@@ -11,3 +11,6 @@ This will:
 
 Future Things I need help with:
 Torrent style auto discovery? JIC the server is blocked. However that can be done outside the app. The goal is simplicity.
+
+...If you're hiring:
+http://linkedin.com/in/dennisohernandez

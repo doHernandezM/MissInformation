@@ -7,13 +7,8 @@
 
 import Foundation
 
-enum OperatingSystem: Int {
-case macOS, linux, windoze
-}
-
-struct Config: Codable {
-    var OS = OperatingSystem.macOS.rawValue
-    
+//The main config file is mainly for a hardwriiten backup. In time fetching from a local or web file will be supported.
+struct Configuration: Codable {
     var setupServer = true
     var setupContent = true
     

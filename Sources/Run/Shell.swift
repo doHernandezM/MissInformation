@@ -41,13 +41,13 @@ func maker() throws -> String {
     return output
 }
 
-func downloadYoutubeFile() throws -> String {
+func downloadYoutubeVideo(_ video: String) throws -> String {
     let task = Process()
     let pipe = Pipe()
 
     task.standardOutput = pipe
     task.standardError = pipe
-    task.arguments = ["-C", "WpKld15QPRk"]
+    task.arguments = ["-C", video]
     task.executableURL = URL(fileURLWithPath: "./yt-dlp/yt-dlp") //<--updated
 
     try task.run() //<--updated

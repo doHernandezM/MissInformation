@@ -7,19 +7,14 @@
 
 import Foundation
 
-func firstInit() {
+func setup() {
     // Example usage:
     do {
         print("\r ---CLONING YT_DLP---")
-        try  print( safeShell("git clone " + Config().ytdlLocation))
+        try  print( safeShell("git clone " + Configuration().ytdlLocation))
 
         print("\r---MAKING YT_DLP---")
-//        try  print( safeShell("make " + "yt-dlp"))
-        
         try print(maker())
-        
-        print("\r---DOWNLOADING YOUTUBE FILE---")
-        try print(downloadYoutubeFile())
     }
     catch {
         print("\(error)") //handle or silence the error here
