@@ -7,24 +7,38 @@
 
 import Foundation
 
-//Do all content downloading here.
+//Do all downloading here.
 class Downloader {
-   let configuration: Configuration
+    var downloadThread: Thread?
+    let configuration: Configuration
     
     init(configuration: Configuration) {
         self.configuration = configuration
     }
     
-    func startVideoDownload() {
-        print("\r---DOWNLOADING YOUTUBE FILES---")
     
-            for (_,video) in self.configuration.videoList.enumerated() {
+    func startVideoDownload() {
+        downloadThread = Thread(block: downloadBlock)
+        
+        print("\r---DOWNLOADING YOUTUBE FILES---")
+        downloadThread?.start()
+    }
+    
+    func downloadBlock() -> () {
+        
+            for (_,video) in configuration.videoList.enumerated() {
                 do {
-                    try print(downloadYoutubeVideo(video))
+                    if self.configuration.debug {
+                        try print(downloadYoutubeVideo(video))
+                    } else {
+                        try _ = downloadYoutubeVideo(video)
+                    }
                 }
                 catch {
                     print("Could not download \(video):\(error)") //handle or silence the error here
                 }
             }
+    
     }
+    
 }

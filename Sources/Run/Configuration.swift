@@ -12,8 +12,17 @@ struct Configuration: Codable {
     var setupServer = true
     var setupContent = true
     
+    var overwriteContent = false //Save bandwidth by note overwritting the file each time.
+    
+    var debug = true //Don't be so verbose in the log
+    
     var ytdlLocation = "https://github.com/yt-dlp/yt-dlp.git"
     
     var videoList: [String] = ["9m0ZeOepb3Q"]
     var playList: String? = nil
+    
+    var resourcesURL = "Resources/"
+    var youtubeDLURL = "/Resources/yt-dlp"
+    
+    var batchURL = ""
 }

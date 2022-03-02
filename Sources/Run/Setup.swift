@@ -8,10 +8,9 @@
 import Foundation
 
 func setup() {
-    // Example usage:
     do {
         print("\r ---CLONING YT_DLP---")
-        try  print( safeShell("git clone " + Configuration().ytdlLocation))
+        try  print( safeShell("git clone " + Configuration().ytdlLocation + " .\(configuration.youtubeDLURL)"))
 
         print("\r---MAKING YT_DLP---")
         try print(maker())
